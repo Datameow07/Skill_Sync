@@ -1,0 +1,341 @@
+/* Root Variables for Light Theme */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #007bff;
+    --accent-color: #e74c3c;
+    --background-color: #f8f9fc;
+    --text-color: #333;
+    --light-gray: #ecf0f1;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --gradient: linear-gradient(135deg, #ffffff, #2575fc);
+}
+
+/* Dark Theme Variables */
+.dark-mode {
+    --primary-color: #f8f9fc;
+    --secondary-color: #1e90ff;
+    --accent-color: #ff6b6b;
+    --background-color: #1a1a1a;
+    --text-color: #f8f9fc;
+    --light-gray: #2c3e50;
+    --gradient: linear-gradient(135deg, #1e1e2f, #2c3e50);
+}
+
+/* Reset & Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Body Styling */
+body {
+    background: var(--gradient);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+    transition: var(--transition);
+}
+
+/* Main Container */
+.container {
+    max-width: 600px;
+    width: 100%;
+    background: var(--light-gray);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    transition: var(--transition);
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--primary-color);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.theme-toggle i {
+    transition: var(--transition);
+}
+
+.theme-toggle .fa-moon {
+    display: inline;
+}
+
+.dark-mode .theme-toggle .fa-moon {
+    display: none;
+}
+
+.dark-mode .theme-toggle .fa-sun {
+    display: inline;
+}
+
+/* Header */
+h1 {
+    color: var(--primary-color);
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+p {
+    color: var(--text-color);
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* Form Box */
+.form-container {
+    background: var(--background-color);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+/* Input Fields */
+textarea, select, input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 14px;
+    background: var(--light-gray);
+    color: var(--text-color);
+    transition: var(--transition);
+    margin-bottom: 15px;
+}
+
+textarea:focus, select:focus, input:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Checkbox Alignment */
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.checkbox input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Adjust spacing between checkbox and text */
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* Button */
+button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    font-weight: bold;
+    transition: var(--transition);
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Results Container */
+.results-container {
+    background: var(--background-color);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-top: 25px;
+    text-align: left;
+}
+
+.results-container h2 {
+    color: var(--primary-color);
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+#results {
+    background: var(--light-gray);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    white-space: pre-wrap;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+/* Loading Spinner */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: var(--secondary-color);
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loading {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 14px;
+}
+
+/* Error Message */
+.error {
+    color: var(--accent-color);
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Copy Button */
+#copyBtn {
+    background-color: var(--primary-color);
+    margin-top: 15px;
+}
+
+#copyBtn:hover {
+    background-color: #1e2b38;
+}
+
+/* Notification */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: var(--border-radius);
+    color: white;
+    font-weight: bold;
+    display: none;
+    animation: slideIn 0.5s ease;
+}
+
+.notification.success {
+    background-color: #28a745;
+}
+
+.notification.error {
+    background-color: #dc3545;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background: var(--light-gray);
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--secondary-color);
+    transition: var(--transition);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 13px;
+    }
+
+    .form-container, .results-container {
+        padding: 20px;
+    }
+
+    textarea, select, input {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 15px;
+    }
+}
